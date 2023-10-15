@@ -1,0 +1,192 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+  background-image: url(/images/Nightcity.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+}
+.container {
+  margin: 20px auto;
+  text-align: center;
+  width: 500px;
+  color: #fef70e;
+  background: linear-gradient(
+    135deg,
+    rgb(255, 255, 255, 0.1),
+    rgb(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgb(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.37);
+}
+.container ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  align-items: center;
+  justify-items: center;
+  row-gap: 15px;
+}
+.container .gamebox {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.container ul li {
+  margin: 10px;
+  width: 60px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.container ul li::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 2px solid #fef70e;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  transform: rotatey(180deg);
+  transition: transform 1s;
+}
+.container ul li::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: absolute;
+  background: linear-gradient(
+      135deg,
+      #0a4362 22px,
+      #fef70e 22px,
+      #fef70e 24px,
+      transparent 24px,
+      transparent 67px,
+      #fef70e 67px,
+      #fef70e 69px,
+      transparent 69px
+    ),
+    linear-gradient(
+        225deg,
+        #0a4362 22px,
+        #fef70e 22px,
+        #fef70e 24px,
+        transparent 24px,
+        transparent 67px,
+        #fef70e 67px,
+        #fef70e 69px,
+        transparent 69px
+      )
+      0 64px;
+  background-color: #0a4362;
+  background-size: 64px 128px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  transition: transform 1s;
+}
+
+.container ul .ballon::after {
+  content: "🎈";
+}
+.container ul .ghost::after {
+  content: "👻";
+}
+.container ul .alien::after {
+  content: "👾";
+}
+.container ul .tongue::after {
+  content: "👅";
+}
+.container ul .key::after {
+  content: "🔑";
+}
+.container ul .pill::after {
+  content: "💊";
+}
+.container ul .cigarette::after {
+  content: "🚬";
+}
+.container ul .guitar::after {
+  content: "🎸";
+}
+.container ul .flipped::before {
+  transform: rotatey(-180deg);
+  transition: 0.5s;
+}
+.container ul .flipped::after {
+  transform: rotatey(0deg);
+  transition: 0.5s;
+}
+.container ul .reversed::before {
+  width: 100%;
+  transition: 0.5s;
+}
+.container ul .currect {
+  opacity: 0.4;
+  cursor: default;
+}
+.container .buttons {
+  position: relative;
+  height: 50px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.reset {
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  cursor: pointer;
+}
+#hint {
+  outline: none;
+  border: none;
+  width: 100px;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  cursor: pointer;
+  transform: translateX(-50%);
+}
+#levels {
+  border: none;
+  border-radius: 8px;
+
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+#levels,
+#hint,
+.reset {
+  background-color: #0a4362;
+  color: #fef70e;
+}
